@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+		<title>Meryl Mathew</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    <script src="virus_sim.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+	</head>
+  <style>
+    .html,body, canvas {
+      margin:0px;
+      padding:0px;
+      color:#fff;
+      background-color:black;
+    }
+    p {
+      font-size: 12px;
+      color:#eeeeee;
+      padding: 0px;
+      margin:0px;
+      padding-top:10px;
+      
+    }
+    #sliderdiv p {
+      margin-bottom: -15px;
+    }
+    
+    h3 {
+      color:#eeeeee;
+      padding-top:20px;
+    }
+
+    input {
+      padding:0px;
+      -webkit-appearance: none;
+      border-radius: 3px;  
+      background: none;
+      border: solid 2px #707070;
+      opacity: 1;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      height: 6px;
+    }
+    input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%; 
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+
+    input::-moz-range-thumb {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+    input:hover::-moz-range-thumb {
+      background: #18bfef;
+    }
+
+    input:hover::-webkit-slider-thumb {
+      background: #18bfef;
+    }
+
+    button {
+      width: 80px;
+      height: 30px;
+      line-height: 0; 
+      padding: 5px; 
+      color: #f0f0f0;
+      margin:auto;
+    }
+
+    #lbl1 {
+      color: rgba(150, 150, 150,1);
+    }
+    #lbl2 {
+      color: rgba(164, 195, 222,1);
+    }
+    #lbl3 {
+      color: rgba(250,120,120,1);
+    }
+    #lbl4 {
+      color: rgba(134, 209, 139,1);
+    }
+  </style>
+
+  <body style="overflow:hidden">
+    <div style="float:right;width:13%;overflow:auto;height:100vh;">
+      <h3>Controls</h3>
+      <button type="button" onclick="resetsim()">Reset</button>
+      <p id="lbl1"></p>
+      <p id="lbl2"></p>
+      <p id="lbl3"></p>
+      <p id="lbl4"></p>
+      <br>
+      <div id="sliderdiv">
+        <p>Population Density</p>
+        <input type="range" min="50" max="300" value="150" class="slider" id="popsize">
+        <p>Transmission Rate</p>
+        <input type="range" min="0" max="100" value="50" class="slider" id="infectrate">
+        <p>Death Rate</p>
+        <input type="range" min="0" max="100" value="20" class="slider" id="deathrate">
+        <p>Percent Vaccinated</p>
+        <input type="range" min="0" max="100" value="10" class="slider" id="vaxrate">
+        <p>Rate of Vaccination</p>
+        <input type="range" min="0.05" max="0.2" value="0.1" step="0.01" class="slider" id="vaxspeed">
+        <p>Percent Social Distancing</p>
+        <input type="range" min="0" max="100" value="0" class="slider" onchange="start_distancing(this.value)">
+      <div>
+    </div
+  </body>
+</html>
